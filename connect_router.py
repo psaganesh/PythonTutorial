@@ -8,7 +8,7 @@ import re
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-ssh.connect('192.168.56.103', username = 'root', password = 'gimec1234')
+ssh.connect('192.168.56.102', username = 'root', password = 'gimec1234')
 
 #stdin,stdout,stderr = ssh.exec_command("show version")
 
@@ -44,7 +44,7 @@ for line in xml_output_list:
 		bgpconf.append(line)
 
 bgpconfxml = '\n'.join(bgpconf)
-
+print bgpconfxml
 xml_parse = xmltodict.parse(bgpconfxml)
 
 for key in xml_parse['rpc-reply']['configuration']['protocols']['bgp']['group']:
